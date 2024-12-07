@@ -25,8 +25,34 @@ function operate(operator,a,b){
             clear();
             return "ERROR";
         }
-        else return divide(a,b).toFixed(6);
+        else return divide(a,b);
     }
+}
+
+function rounding(number){
+    {
+        let arr = number.toString().split("")
+        let cutLenght = number.toString().length - 11;
+        for (let i = 0; i < cutLenght; i++){
+            arr.pop();
+        }
+        return arr.join("");
+    }
+}
+//check if number is just large or number have got a lot of number after decimals
+function getTenCharNumber(numb){
+    if(numb.toString().length >10){
+        if(numb.toString().includes(".")){
+            return rounding(numb);
+        }
+        else if(numb > 9999999999){
+            return 9999999999;
+        }
+    }
+    else{
+        return numb;
+    }
+
 }
 
 let collector = "";
@@ -40,9 +66,11 @@ display.textContent = 0;
 
 numbers.forEach((button) =>{
     button.addEventListener("click", () =>{
-        display.textContent = "";
-        collector += button.textContent;
-        display.textContent = collector;
+        if (collector.length < 10){
+            display.textContent = "";
+            collector += button.textContent;
+            display.textContent = collector;
+        }
     });
 });
 
@@ -59,7 +87,8 @@ operatorsButtons.forEach((button) =>{
                 if (sign1 == ""){
                     sign1 = button.textContent;
                 }
-                value1 = display.textContent = operate(sign1, Number(value2), Number(value1));
+                value1 = operate(sign1, Number(value2), Number(value1));
+                display.textContent = value1 = getTenCharNumber(value1);
             }
             
             collector = "";
@@ -73,7 +102,7 @@ equals.addEventListener("click", () => {
     if (value1 != "" && collector !=""){
         value2 = value1;
         value1 = collector;
-        display.textContent = operate(sign1, Number(value2), Number(value1));
+        display.textContent = getTenCharNumber(operate(sign1, Number(value2), Number(value1)));
         if (display.textContent != "ERROR"){
             value1 = display.textContent;
         }
@@ -89,4 +118,27 @@ function clear(){
     sign1 = "";
 }
 
+const backspaceButton = document.querySelector(".backspace");
+backspaceButton.addEventListener("click", () => { 
+    if(collector !=""){
+        let arr = collector.split("");
+        arr.pop();
+        display.textContent = collector = arr.join("");
+    }
+});
+
+const decimalButton = document.querySelector(".decimal");
+decimalButton.addEventListener("click", () => {
+    if (!collector.includes(".") && collector !=""){
+        collector += decimalButton.textContent;
+        display.textContent = collector;
+    }
+})
+
+//key activation
+window.addEventListener('keydown', function(e) {
+    const button = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    if(!button) return;
+    button.click();
+})
 

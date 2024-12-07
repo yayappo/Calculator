@@ -11,25 +11,47 @@
         <div class="display"></div>
         <div class="buttons">
             <div class="buttonNumbers">
-                <button class="number">0</button>
-                <button class="number">1</button>
-                <button class="number">2</button>
-                <button class="number">3</button>
-                <button class="number">4</button>
-                <button class="number">5</button>
-                <button class="number">6</button>
-                <button class="number">7</button>
-                <button class="number">8</button>
-                <button class="number">9</button>
+                <div class="numberBlockOf3">
+
+                    <button data-key="36" class="number">7</button>
+                    <button data-key="38" class="number">8</button>
+                    <button data-key="33" class="number">9</button>
+                </div>
+                <div class="numberBlockOf3">
+
+                    <button data-key="37" class="number">4</button>
+                    <button data-key="12" class="number">5</button>
+                    <button data-key="49" class="number">6</button>
+                </div>
+                <div class="numberBlockOf3">
+                    <button data-key="35" class="number">1</button>
+                    <button data-key="40" class="number">2</button>
+                    <button data-key="34" class="number">3</button>
+                </div>
+                <div class="numberBlockOf3">
+                    <button data-key="45" class="number">0</button>
+                    <button data-key="46" class="decimal">.</button>
+                    <button data-key="13" class="equals">=</button>
+                </div>
+                
+                
             </div>
             <div class="operators">
-                <button class="operator">+</button>
-                <button class="operator">-</button>
-                <button class="operator">*</button>
-                <button class="operator">/</button>
-                <button class="equals">=</button>
+                <div class="operatorsBlock">
+                    <button data-key="8" class="backspace">Ac</button>
+                </div>
+                <div class="operatorsBlock">
+                    <button class="clearButton">C</button>
+                </div>
+                <div class="operatorsBlock">
+                    <button data-key="107" class="operator">+</button>
+                    <button data-key="109" class="operator">-</button>
+                </div>
+                <div class="operatorsBlock">
+                    <button data-key="106" class="operator">*</button>
+                    <button data-key="111" class="operator">/</button>
+                </div>
             </div>
-            <button class="clearButton">Clear</button>
         </div>
     </div>
     <script src = "javascript.js"></script>

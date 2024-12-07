@@ -1,9 +1,15 @@
+button{
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: black;
+}
 body{
     display: flex;
     text-align: center;
     justify-content: center;
     background-color: rgb(0, 140, 255);
 }
+
 .calculatorBox{
     margin-top: 10%;
     display: flex;
@@ -14,6 +20,7 @@ body{
     width: 500px;
     border: solid 8px;
     border-radius: 8px;
+    
 }
 .display{
     text-align: right;
@@ -21,6 +28,51 @@ body{
     width:460px;
     padding: 10px;
     margin: 10px;
-    height: 60px;
-    font-size:  60px;
+    height: 100px;
+    font-size:  90px;
+}
+.buttons{
+    display: flex;
+    width:480px;
+    height: 500px;
+    flex-wrap: wrap;
+    gap: 0px;
+    padding-bottom: 10px;
+    gap: 2px;
+}
+.buttonNumbers{
+    flex: 2 0 auto;
+    flex-direction: column;
+    display: flex;
+    gap: 2px;
+}
+
+.numberBlockOf3{
+    display: flex;
+    gap: 0px;
+    flex: 1 0 auto;
+    gap: 2px;
+    button{
+        flex: 1 0 auto;
+    }
+}
+.operators{
+    flex: 1 0 auto;
+    flex-direction: column;
+    display: flex;
+    gap: 2px;
+}
+
+
+.operatorsBlock{
+    display: flex;
+    gap: 0px;
+    flex: 1 0 auto;
+    gap: 2px;
+    button{
+        flex: 1 0 auto;
+    }
+}
+.backspace{
+    flex: 2 0 auto;
 }
